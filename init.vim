@@ -3,7 +3,7 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.config/nvim/bundle/Vundle.vim/
 call vundle#rc()
 
 " This is the Vundle package, which can be found on GitHub.
@@ -53,12 +53,18 @@ Plugin 'w0rp/ale'
 
 " Code completion
 "Plugin 'valloric/youcompleteme'
+Plugin 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plugin 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plugin 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 
 " Matlab Editing
 Plugin 'MatlabFilesEdition'
 
 " Vim hardtime keeps you from repeating the same keys. Learn vim the hard way!
 Plugin 'takac/vim-hardtime'
+
+" Languange server client
+Plugin 'neovim/nvim-lspconfig'
 
 " -----------------------------------------------------------------------------
 " Colorschemes 
@@ -93,18 +99,22 @@ Plugin 'iamcco/markdown-preview.nvim'
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 
+"===================================================================
+" Plugins settings 
+"===================================================================
 
+" ALE (Asynchronous Lint Engine)
+let b:ale_linters = ['pylint'] ", 'flake8']
+let b:ale_fixers = ['autopep8', 'yapf', 'trim_whitespace', 'remove_trailing_lines']
 
-" Plugins settings -------------------------------------------
+"COQ_nvim. Autostart
+let g:coq_settings = { 'auto_start': 'shut-up' }
+
+" NERD TREE plugin
+map <C-n> :NERDTreeToggle<CR>
 
 " Indent guides
 let g:indent_guides_enable_on_vim_startup = 0
-
-" snippets
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " " better key bindings for UltiSnipsExpandTrigger
 "let g:UltiSnipsExpandTrigger = "<tab>"
@@ -112,11 +122,22 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" airline
+let g:airline#extensions#tabline#enabled = 1
 
+"" Ctrl-P: ingore xsim directories
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip   " MacOSX/Linux
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'xsim.dir',
+  \ }
+
+"===================================================================
+"VIM CONFIGURATION 
+"===================================================================
 " Specify which python environment is to be used with neovim
-" let g:python3_host_prog = expand('~/.python_env/neovim_env/bin/python3.7')
+ let g:python3_host_prog = expand('~/.config/nvim/nvim_env/bin/python')
 
-"VIM CONFIGURATION -------------------------------------------
 set number                " show line numbers
 set relativenumber
 
@@ -159,6 +180,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" vim tabs
+nnoremap <F6> :tabprevious<CR>
+nnoremap <F7> :tabnext<CR>
+
 "===================================================================
 " CUSTOM INDENTATION
 "===================================================================
@@ -196,18 +221,6 @@ au BufNewFile,BufRead *.yml
             \ set autoindent |
             \ set fileformat=unix 
 
-"===================================================================
-" INDENT LINE GUIDES 
-"===================================================================
-"let g:indent_guides_enable_on_vim_startup = 1
-"let g:indent_guides_start_level =2
-"let g:indent_guides_guide_size =1
-
-" YCM
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-
 " colorscheme
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark= 'hard'
@@ -215,43 +228,12 @@ let g:gruvbox_contrast_dark= 'hard'
 colorscheme gruvbox
 set background=dark
 set termguicolors
-"let g:solarized_termcolors=256 "this is what fixed it for me
-"colorscheme solarized
-
-" vim tabs
-nnoremap <F6> :tabprevious<CR>
-nnoremap <F7> :tabnext<CR>
-
-" airline
-let g:airline#extensions#tabline#enabled = 1
-
-" ALE (Asynchronous Lint Engine)
-let b:ale_linters = ['pylint'] ", 'flake8']
-let b:ale_fixers = ['autopep8', 'yapf', 'trim_whitespace', 'remove_trailing_lines']
-
-"nnoremap <F6> :source ~/Templates/header_sv.txt<CR> 
-
 
 "  Leader key +b will open the list of buffers and write buffer<space>, so the 
 "  user can select a different buffer easily
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
 
-" NERD TREE plugin
-map <C-n> :NERDTreeToggle<CR>
-
 set shell=/bin/bash
-set termguicolors
 tnoremap <Esc> <C-\><C-n>
 
-" Solves conflict between YCM and python mode. VIM was freezing after every
-" dot in python.
-let g:pymode_rope_complete_on_dot = 0
-
-
-"" Ctrl-P: ingore xsim directories
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip   " MacOSX/Linux
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  'xsim.dir',
-  \ }
-
+"nnoremap <F6> :source ~/Templates/header_sv.txt<CR> 
