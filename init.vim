@@ -52,19 +52,13 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'w0rp/ale'
 
 " Code completion
-"Plugin 'valloric/youcompleteme'
-Plugin 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plugin 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-Plugin 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Matlab Editing
 Plugin 'MatlabFilesEdition'
 
 " Vim hardtime keeps you from repeating the same keys. Learn vim the hard way!
 Plugin 'takac/vim-hardtime'
-
-" Languange server client
-Plugin 'neovim/nvim-lspconfig'
 
 " -----------------------------------------------------------------------------
 " Colorschemes 
@@ -107,8 +101,9 @@ filetype plugin indent on
 let b:ale_linters = ['pylint'] ", 'flake8']
 let b:ale_fixers = ['autopep8', 'yapf', 'trim_whitespace', 'remove_trailing_lines']
 
-"COQ_nvim. Autostart
-let g:coq_settings = { 'auto_start': 'shut-up' }
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
 
 " NERD TREE plugin
 map <C-n> :NERDTreeToggle<CR>
