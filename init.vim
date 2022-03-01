@@ -52,7 +52,10 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'w0rp/ale'
 
 " Code completion
-Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plugin 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plugin 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 
 " Matlab Editing
 Plugin 'MatlabFilesEdition'
@@ -102,7 +105,9 @@ let b:ale_linters = ['pylint'] ", 'flake8']
 let b:ale_fixers = ['autopep8', 'yapf', 'trim_whitespace', 'remove_trailing_lines']
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
+" COQ now
+let g:coq_settings = {'auto_start': v:true}
 
 
 " NERD TREE plugin
@@ -131,7 +136,7 @@ let g:ctrlp_custom_ignore = {
 "VIM CONFIGURATION 
 "===================================================================
 " Specify which python environment is to be used with neovim
- let g:python3_host_prog = expand('~/.config/nvim/nvim_env/bin/python')
+"let g:python3_host_prog = expand('~/.config/nvim/nvim_env/bin/python')
 
 set number                " show line numbers
 set relativenumber
