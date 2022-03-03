@@ -1,97 +1,91 @@
 " Vundle commands
-set nocompatible
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim/
-call vundle#rc()
+call plug#begin('~/.config/nvim/plugged')
 
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
-Plugin 'gmarik/vundle'
+Plug 'gmarik/vundle'
 
 "Status Bar
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 "Status Bar themes
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 
 " Git integration
-"Plugin 'tpope/vim-fugitive'
-"Plugin 'airblade/vim-gitgutter'
+"Plug 'tpope/vim-fugitive'
+"Plug 'airblade/vim-gitgutter'
 
 " Fuzzy finder
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 " Nerd tree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " Align text and patterns
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 
 " Indent line guides
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Super Tab
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
 "Diff tool
-Plugin 'DirDiff.vim'
+Plug 'will133/vim-dirdiff'
 
 " Multiple cursor
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
 " python autocompletion and help
-Plugin 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 
 " Snippets
-" Plugin 'honza/vim-snippets'
-" Plugin 'sirver/ultisnips'
+" Plug 'honza/vim-snippets'
+" Plug 'sirver/ultisnips'
 " Asynchronous Lint Engine ALE
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " Code completion
-"Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plugin 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plugin 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-Plugin 'ms-jpq/coq.thirdparty', {'branch': '3p'}
-
-" Matlab Editing
-Plugin 'MatlabFilesEdition'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 
 " Vim hardtime keeps you from repeating the same keys. Learn vim the hard way!
-Plugin 'takac/vim-hardtime'
+Plug 'takac/vim-hardtime'
 
 " -----------------------------------------------------------------------------
 " Colorschemes 
 " -----------------------------------------------------------------------------
 " gruvbox
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " dracula
-Plugin 'dracula/vim'
+Plug 'dracula/vim'
 
 " Space gray
-Plugin 'ajh17/spacegray.vim'
+Plug 'ajh17/spacegray.vim'
 
 " iceberg
-Plugin 'cocopon/iceberg.vim'
+Plug 'cocopon/iceberg.vim'
 
 " solarized
-Plugin 'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-solarized8'
 
 
 " system verilog
-Plugin 'nachumk/systemverilog.vim'
+Plug 'nachumk/systemverilog.vim'
 
 " add comments. Use gcc to comment a line and gc to complete blocks of code
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
-Plugin 'iamcco/markdown-preview.nvim'
+Plug 'iamcco/markdown-preview.nvim'
 " :source %
-" :PluginInstall
+" :Plug Install
 " :call mkdp#util#install()
+"
+call plug#end()
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
