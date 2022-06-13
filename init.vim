@@ -130,7 +130,7 @@ let g:ctrlp_custom_ignore = {
 "VIM CONFIGURATION 
 "===================================================================
 " Specify which python environment is to be used with neovim
-"let g:python3_host_prog = expand('~/.config/nvim/nvim_env/bin/python')
+let g:python3_host_prog = expand('~/miniconda3/bin/python3.9')
 
 set number                " show line numbers
 set relativenumber
