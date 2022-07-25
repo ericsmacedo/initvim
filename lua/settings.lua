@@ -61,7 +61,7 @@ vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
 vim.g["airline#extensions#tabline#enabled"] = 1
 -- 
 -- "" Ctrl-P: ingore xsim directories
-- vim.g.ctrlp_custom_ignore = {\ 'dir':  'xsim.dir', \}
+--- vim.g.ctrlp_custom_ignore = {\ 'dir':  'xsim.dir', \}
 
 -- Specify which python environment is to be used with neovim
 vim.g.python3_host_prog = vim.call("expand", "~/miniconda3/bin/python3.9")
