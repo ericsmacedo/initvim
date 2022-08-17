@@ -4,6 +4,7 @@ local o = vim.o  	-- Global options
 local wo = vim.wo	-- window-local options
 local bo = vim.bo	-- buffer-local options
 
+
 -- global options
 o.mouse = "a" -- enable mouse support for all modes
 o.incsearch = true             -- search as characters are entered
@@ -22,10 +23,10 @@ wo.conceallevel = 0      -- Determine how text with the "conceal" syntax attribu
 
 -- buffer local options
 
-bo.softtabstop = 4         -- number of spaces in tab when editing.
-bo.tabstop = 4             -- number of spaces in tab when editing
-bo.expandtab = true      -- tabs are spaces
-bo.shiftwidth = 4          -- number of spaces used for >> and << 
+o.softtabstop = 4         -- number of spaces in tab when editing.
+o.tabstop = 4             -- number of spaces in tab when editing
+o.expandtab = true        -- tabs are spaces
+o.shiftwidth = 4          -- number of spaces used for >> and << 
 
 
 ---- Plugin settings
@@ -42,7 +43,7 @@ vim.cmd[[colorscheme gruvbox]]
 vim.g["deoplete#enable_at_startup"] = 1
 
 -- " COQ now
-vim.g.coq_settings = {auto_start = true}
+vim.g.coq_settings = {auto_start = 'shut-up'}
 -- 
 -- 
 -- " NERD TREE plugin
@@ -82,15 +83,16 @@ vim.api.nvim_create_autocmd({"InsertLeave"}, {pattern = {"*"},
 -- "===================================================================
 
 local set_ident = function()
-    vim.bo.tabstop = 4          -- number of spaces in tab when editing
-    vim.bo.softtabstop = 4      -- number of spaces in tab when editing.
-    vim.bo.shiftwidth = 4       -- number of spaces used for >> and <<
+    vim.o.tabstop = 4          -- number of spaces in tab when editing
+    vim.o.softtabstop = 4      -- number of spaces in tab when editing.
+    vim.o.shiftwidth = 4       -- number of spaces used for >> and <<
+    vim.o.expandtab = true     -- tabs are spaces
 end
 
 local set_yml_ident = function()
-    vim.bo.tabstop = 2          -- number of spaces in tab when editing
-    vim.bo.softtabstop = 2      -- number of spaces in tab when editing.
-    vim.bo.shiftwidth = 2       -- number of spaces used for >> and <<
+    vim.o.tabstop = 2          -- number of spaces in tab when editing
+    vim.o.softtabstop = 2      -- number of spaces in tab when editing.
+    vim.o.shiftwidth = 2       -- number of spaces used for >> and <<
 end
 
 
@@ -110,3 +112,10 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"},
 -- 
 -- set shell=/bin/bash
 -- tnoremap <Esc> <C-\><C-n>
+--
+
+local nvim_lsp = require('lspconfig')
+-- Verible language server
+require'lspconfig'.verible.setup {
+   root_dir = nvim_lsp.util.root_pattern(".p4config", ".git");
+}
