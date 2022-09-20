@@ -11,6 +11,11 @@ vim.api.nvim_set_keymap("n", "<F7>", "tabnext<CR>", options)
 -- turn off search highlight
 vim.api.nvim_set_keymap("n", "<leader><space>", ":nohlsearch<CR>", options)
 
+-- remove conflict with <c-h> keymap, mapping jump_to_Mark to something else
+vim.g.coq_settings = {
+    keymap =  { jump_to_mark = "<c-\\" },
+}
+
 
 
 
