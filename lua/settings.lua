@@ -35,6 +35,9 @@ vim.api.nvim_create_autocmd({"InsertLeave"}, {pattern = {"*"},
 -- To prevent errors with the Shada (shared data) file, I added the line below
 vim.cmd[[ "set viminfo+=n~/vim/viminfo"]]
 
+-- Specify which python environment is to be used with neovim
+vim.g.python3_host_prog = vim.call("expand", "~/.config/nvim/pyenv/bin/python3.9")
+
 -- "===================================================================
 -- " CUSTOM INDENTATION
 -- "===================================================================

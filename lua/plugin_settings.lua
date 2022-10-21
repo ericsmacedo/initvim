@@ -19,11 +19,8 @@ vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
 -- " airline
 vim.g["airline#extensions#tabline#enabled"] = 1
 
--- Specify which python environment is to be used with neovim
-vim.g.python3_host_prog = vim.call("expand", "~/miniconda3/bin/python3.9")
-
 -- verible
-local servers = {'pyright'}
+local servers = {'pylsp'}
 local nvim_lsp = require('lspconfig')
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {

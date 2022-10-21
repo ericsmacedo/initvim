@@ -38,9 +38,6 @@ Plug 'will133/vim-dirdiff'
 -- Multiple cursor
 Plug 'terryma/vim-multiple-cursors'
 
--- Asynchronous Lint Engine ALE
-Plug 'w0rp/ale'
-
 -- Code completion
 Plug('ms-jpq/coq_nvim', {branch = 'coq'})
 Plug('ms-jpq/coq.artifacts', {branch = 'artifacts'})
@@ -80,3 +77,11 @@ Plug 'lifepillar/vim-solarized8'
 
 
 vim.call('plug#end')
+
+-- *****************************************************************************
+-- Deprecated 
+-- *****************************************************************************
+
+-- Asynchronous Lint Engine ALE
+-- Plug 'w0rp/ale'
+
