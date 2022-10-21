@@ -2,4 +2,5 @@
 require('vim_plug')    -- lua/vim_plug.lua
 require('settings')    -- lua/settings.lua
 require('maps')        -- lua/maps.lua
+require('plugin_settings')
 --require('statusline')  -- lua/statusline.luacd ..

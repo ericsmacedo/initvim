@@ -5,7 +5,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 -- This is the Vundle package, which can be found on GitHub.
 -- For GitHub repos, you specify plugins using the
 -- 'user/repository' format
-
 Plug 'gmarik/vundle'
 
 -- Status Bar
@@ -39,12 +38,6 @@ Plug 'will133/vim-dirdiff'
 -- Multiple cursor
 Plug 'terryma/vim-multiple-cursors'
 
--- python autocompletion and help
-Plug 'davidhalter/jedi-vim'
-
--- Snippets
--- Plug 'honza/vim-snippets'
--- Plug 'sirver/ultisnips'
 -- Asynchronous Lint Engine ALE
 Plug 'w0rp/ale'
 
@@ -53,8 +46,18 @@ Plug('ms-jpq/coq_nvim', {branch = 'coq'})
 Plug('ms-jpq/coq.artifacts', {branch = 'artifacts'})
 Plug('ms-jpq/coq.thirdparty', {branch = '3p'})
 
--- Vim hardtime keeps you from repeating the same keys. Learn vim the hard way!
-Plug 'takac/vim-hardtime'
+-- Language Server Protocol
+Plug 'neovim/nvim-lspconfig'
+
+-- Error messages will look better with this
+Plug 'neovim/nvim-lspconfig'
+Plug('glepnir/lspsaga.nvim', {branch= 'main'})
+
+-- Smooth scrolling
+Plug 'psliwka/vim-smoothie'
+
+-- add comments. Use gcc to comment a line and gc to complete blocks of code
+Plug 'tpope/vim-commentary'
 
 -- *****************************************************************************
 -- Colorschemes 
@@ -76,15 +79,4 @@ Plug 'cocopon/iceberg.vim'
 Plug 'lifepillar/vim-solarized8'
 
 
--- system verilog
-Plug 'nachumk/systemverilog.vim'
-
--- add comments. Use gcc to comment a line and gc to complete blocks of code
-Plug 'tpope/vim-commentary'
-
-Plug 'iamcco/markdown-preview.nvim'
--- :source %
--- :Plug Install
--- :call mkdp#util#install()
---
 vim.call('plug#end')
