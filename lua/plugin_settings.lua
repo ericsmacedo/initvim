@@ -7,8 +7,10 @@ vim.g.gruvbox_italic = 1
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.cmd[[colorscheme gruvbox]]
 
--- " COQ: Removes start-up welcome message
+-- " COQ: Removes start-up welcome message.
 vim.g.coq_settings = {auto_start = 'shut-up'}
+vim.g.coq_settings = {keymap =  {jump_to_mark = null}, }
+
 
 -- " " better key bindings for UltiSnipsExpandTrigger
 vim.g.UltiSnipsExpandTrigger = "<tab>"
