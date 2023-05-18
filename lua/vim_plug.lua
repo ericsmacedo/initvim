@@ -2,23 +2,18 @@
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
--- This is the Vundle package, which can be found on GitHub.
--- For GitHub repos, you specify plugins using the
--- 'user/repository' format
-Plug 'gmarik/vundle'
-
 -- Status Bar
 Plug 'bling/vim-airline'
 
 -- Status Bar themes
 Plug 'vim-airline/vim-airline-themes'
 
--- Git integration
---Plug 'tpope/vim-fugitive'
---Plug 'airblade/vim-gitgutter'
-
--- Fuzzy finder
+-- Fuzzy finders
+-- ctrl-p
 Plug 'kien/ctrlp.vim'
+-- fzf
+Plug('junegunn/fzf', { ['do'] = function() vim.call('fzf#install') end })
+Plug 'junegunn/fzf.vim'
 
 -- Nerd tree
 Plug 'scrooloose/nerdtree'
@@ -35,10 +30,11 @@ Plug 'ervandew/supertab'
 --Diff tool
 Plug 'will133/vim-dirdiff'
 
--- Multiple cursor
+-- Multiple cursor: select multple occurrences of the highligthed word. can
+-- be replaced by a simple search and replace command
 Plug 'terryma/vim-multiple-cursors'
 
--- Code completion
+-- COQ vim: Code completion
 Plug('ms-jpq/coq_nvim', {branch = 'coq'})
 Plug('ms-jpq/coq.artifacts', {branch = 'artifacts'})
 Plug('ms-jpq/coq.thirdparty', {branch = '3p'})
@@ -56,6 +52,9 @@ Plug 'psliwka/vim-smoothie'
 -- add comments. Use gcc to comment a line and gc to complete blocks of code
 Plug 'tpope/vim-commentary'
 
+-- Vp4: perforce versioning plugin
+Plug 'ngemily/vim-vp4'
+
 -- *****************************************************************************
 -- Colorschemes 
 -- *****************************************************************************
@@ -63,25 +62,4 @@ Plug 'tpope/vim-commentary'
 -- gruvbox
 Plug 'morhetz/gruvbox'
 
--- dracula
-Plug 'dracula/vim'
-
--- Space gray
-Plug 'ajh17/spacegray.vim'
-
--- iceberg
-Plug 'cocopon/iceberg.vim'
-
--- solarized
-Plug 'lifepillar/vim-solarized8'
-
-
 vim.call('plug#end')
-
--- *****************************************************************************
--- Deprecated 
--- *****************************************************************************
-
--- Asynchronous Lint Engine ALE
--- Plug 'w0rp/ale'
-

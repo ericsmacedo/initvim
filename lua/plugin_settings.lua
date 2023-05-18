@@ -11,13 +11,6 @@ vim.cmd[[colorscheme gruvbox]]
 vim.g.coq_settings = {auto_start = 'shut-up'}
 vim.g.coq_settings = {keymap =  {jump_to_mark = null}, }
 
-
--- " " better key bindings for UltiSnipsExpandTrigger
-vim.g.UltiSnipsExpandTrigger = "<tab>"
-vim.g.UltiSnipsExpandTrigger = "<tab>"
-vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
-vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
 -- " airline
 vim.g["airline#extensions#tabline#enabled"] = 1
 
@@ -31,6 +24,14 @@ for _, lsp in pairs(servers) do
         root_dir = nvim_lsp.util.root_pattern(".p4config", ".git")
     }
 end
+
+-- ctrl-p 
+-- CtrlP cache directory
+vim.g.ctrlp_cache_dir = os.getenv('HOME') .. '/.cache/ctrlp'
+-- The Silver Searcher
+-- if vim.fn.executable('ag') == 1 then
+--   vim.g.ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+-- end
 
 -- "  Leader key +b will open the list of buffers and write buffer<space>, so the 
 -- "  user can select a different buffer easily
